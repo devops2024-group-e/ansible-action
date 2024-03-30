@@ -1,5 +1,5 @@
-name: 'Vansible-Provisioner'
-description: 'Runs vagrant provision with ansible'
+name: 'ansible-playbook-runner'
+description: 'Runs ansible playbooks using the provided inventory and playbook file'
 inputs:
   dotoken:
     description: 'The Digital Ocean token'
