@@ -1,0 +1,39 @@
+name: 'ansible-playbook-runner'
+description: 'Runs ansible playbooks using the provided inventory and playbook file'
+inputs:
+  dotoken:
+    description: 'The Digital Ocean token'
+    required: true
+  dosshkeyname:
+    description: 'The name of the ssh key in Digital Ocean'
+    required: true
+  sshkey:
+    description: 'The private ssh key to access servers'
+    required: true
+  dockeruser:
+    description: 'The username for the docker registry'
+    required: true
+  dockerpassword:
+    description: 'The password for the docker registry'
+    required: true
+  inventoryfile:
+    description: 'The working directory to run the command in'
+    required: true
+  playbook:
+    description: 'The playbook to run'
+    required: true
+  working-directory:
+    description: 'The working directory to run the command in'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.sshkey}}
+    - ${{ inputs.dockeruser }}
+    - ${{ inputs.dockerpassword }}
+    - ${{ inputs.dotoken }}
+    - ${{ inputs.dosshkeyname }}
+    - ${{ inputs.inventoryfile }}
+    - ${{ inputs.playbook }}
+    - ${{ inputs.working-directory }}
