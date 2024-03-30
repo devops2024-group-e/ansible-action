@@ -6,7 +6,6 @@ ENV ANSIBLE_HOST_KEY_CHECKING=False
 
 RUN echo "Installing Ansible"; \
     pip3 install --upgrade pip; \
-    pip3 install docker; \
     pip3 install ansible
 
 
